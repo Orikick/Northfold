@@ -2,7 +2,7 @@
 
 Designed and developed by Orest Labiak.
 
-**Live demo:** _link coming soon_ <!-- replace with the Vercel or Netlify URL -->
+**Live demo:** https://rowline.netlify.app/
 
 <!-- Screenshots: save them to the docs/ folder with these names, then delete this comment's first and last lines.
 ![Desktop view](docs/screenshot-desktop.png)
