@@ -1,0 +1,55 @@
+@use "sass:map";
+@use "./variables" as v;
+
+// Mobile-first breakpoint: @include m.up(md) { ... }
+@mixin up($name) {
+  @media (min-width: map.get(v.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+// Mirrors FULL_MOTION in src/lib/motion.js. Pinning, parallax and
+// smooth scrolling only run when this query matches.
+@mixin full-motion {
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// Hover styles only for devices that really hover.
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: v.$container;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@mixin display-font {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

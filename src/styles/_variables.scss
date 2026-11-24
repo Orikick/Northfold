@@ -1,0 +1,10 @@
+// Sass-only values. Colours, type and spacing live as CSS custom
+// properties in global.scss so components can re-theme per section.
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+$container: 1440px;

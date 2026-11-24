@@ -1,0 +1,37 @@
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.inner {
+  @include m.container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1rem;
+
+  @include m.up(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem 2rem;
+  }
+}
+
+// Drop the middle column for a less rigid grid.
+.item:nth-child(3n + 2) {
+  @include m.up(md) {
+    margin-top: 3.5rem;
+  }
+}
+
+.placeholderPhoto {
+  aspect-ratio: 4 / 5;
+}
+
+.placeholderLine {
+  width: 70%;
+  height: 1.25rem;
+  margin-top: 1rem;
+}

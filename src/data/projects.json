@@ -1,0 +1,68 @@
+[
+  {
+    "id": "kestrel-bikes",
+    "title": "Kestrel Bikes",
+    "discipline": "Identity and online store",
+    "year": 2026,
+    "summary": "A sharper identity and a three-step checkout for a Danish city-bike maker.",
+    "result": "+38% online orders",
+    "photo": "photo-1485965120184-e220f721d03e",
+    "alt": "A white single-speed bicycle leaning against a dark wall.",
+    "ratio": 1.3333
+  },
+  {
+    "id": "vintergatan-hotels",
+    "title": "Vintergatan Hotels",
+    "discipline": "Website and booking flow",
+    "year": 2025,
+    "summary": "One booking flow for a group of eleven hotels, replacing four separate systems.",
+    "result": "+24% direct bookings",
+    "photo": "photo-1566073771259-6a8506099945",
+    "alt": "Sun loungers beside a hotel pool at dusk.",
+    "ratio": 0.8
+  },
+  {
+    "id": "lunet-audio",
+    "title": "Lunet Audio",
+    "discipline": "Launch campaign",
+    "year": 2025,
+    "summary": "Film, stills and shop displays for the launch of the L2 wireless headphones.",
+    "result": "Sold out in 9 days",
+    "photo": "photo-1505740420928-5e560c06d30e",
+    "alt": "Black over-ear headphones on a yellow background.",
+    "ratio": 1.3333
+  },
+  {
+    "id": "halde-bank",
+    "title": "Halde Bank",
+    "discipline": "Mobile banking app",
+    "year": 2024,
+    "summary": "A rebuilt app and card controls that let customers freeze a card or split a bill in two taps.",
+    "result": "App rating 2.9 to 4.7",
+    "photo": "photo-1563013544-824ae1b704d3",
+    "alt": "Hands holding a bank card above a laptop keyboard.",
+    "ratio": 0.8
+  },
+  {
+    "id": "aldermoor-coffee",
+    "title": "Aldermoor Coffee",
+    "discipline": "Packaging and identity",
+    "year": 2024,
+    "summary": "New packaging for a roaster moving from market stalls to supermarket shelves.",
+    "result": "140 new stockists",
+    "photo": "photo-1495474472287-4d71bcdd2085",
+    "alt": "Three people holding cups of coffee with latte art over a cafe table.",
+    "ratio": 1.3333
+  },
+  {
+    "id": "sorrel-health",
+    "title": "Sorrel Health",
+    "discipline": "Design system",
+    "year": 2023,
+    "summary": "A shared component library for fourteen product teams building clinic software.",
+    "result": "Build time halved",
+    "photo": "photo-1576091160399-112ba8d25d1d",
+    "alt": "A clinician in a white coat using a smartphone.",
+    "ratio": 0.8
+  }
+]

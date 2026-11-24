@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ingrid-solberg",
+    "name": "Ingrid Solberg",
+    "role": "Founding partner, creative direction",
+    "photo": "photo-1494790108377-be9c29b29330"
+  },
+  {
+    "id": "mateo-rinaldi",
+    "name": "Mateo Rinaldi",
+    "role": "Partner, strategy",
+    "photo": "photo-1507003211169-0a1dd7228f2d"
+  },
+  {
+    "id": "anika-bhatt",
+    "name": "Anika Bhatt",
+    "role": "Design lead, digital products",
+    "photo": "photo-1534528741775-53994a69daeb"
+  },
+  {
+    "id": "jonas-kragh",
+    "name": "Jonas Kragh",
+    "role": "Lead developer",
+    "photo": "photo-1500648767791-00dcc994a43e"
+  },
+  {
+    "id": "leila-haddad",
+    "name": "Leila Haddad",
+    "role": "Brand designer",
+    "photo": "photo-1438761681033-6461ffad8d80"
+  },
+  {
+    "id": "tobias-lindqvist",
+    "name": "Tobias Lindqvist",
+    "role": "Motion designer",
+    "photo": "photo-1472099645785-5658abf4ff4e"
+  }
+]

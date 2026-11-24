@@ -1,0 +1,96 @@
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--rule);
+}
+
+.inner {
+  @include m.container;
+  display: grid;
+  gap: 3rem;
+
+  @include m.up(lg) {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+  }
+}
+
+.title {
+  font-size: var(--step-3);
+}
+
+.lede {
+  max-width: 30rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+}
+
+.details {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+
+  dt {
+    @include m.display-font;
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+
+  dd {
+    @include m.display-font;
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  a {
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  gap: 1.5rem;
+
+  @include m.up(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.submitError {
+  flex: 1 1 16rem;
+  color: var(--danger);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--white);
+  border: 1px solid var(--rule);
+}
+
+.successTitle {
+  font-size: var(--step-2);
+}

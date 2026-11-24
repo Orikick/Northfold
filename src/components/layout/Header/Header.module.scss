@@ -1,0 +1,163 @@
+@use "../../../styles/mixins" as m;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--mist);
+}
+
+.inner {
+  @include m.container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--header-h);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.toggle {
+  @include m.display-font;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 2.75rem;
+  padding-inline: 0.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  @include m.up(lg) {
+    display: none;
+  }
+}
+
+.bars {
+  position: relative;
+  width: 1.5rem;
+  height: 0.75rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+}
+
+.toggle[aria-expanded="true"] .bars::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.toggle[aria-expanded="true"] .bars::after {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+// Small screens: a panel that drops below the header.
+// From md up: an inline row.
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1rem var(--gutter) 2rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--mist);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0.25s;
+
+  @include m.up(lg) {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    border: 0;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.navOpen {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include m.up(lg) {
+    flex-direction: row;
+    gap: 1.75rem;
+    width: auto;
+  }
+}
+
+.link {
+  @include m.display-font;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.5rem;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  @include m.hover {
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  @include m.up(lg) {
+    min-height: 2.75rem;
+    font-size: 1.125rem;
+  }
+}

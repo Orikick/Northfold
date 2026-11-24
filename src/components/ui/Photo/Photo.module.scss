@@ -1,0 +1,37 @@
+@use "../../../styles/mixins" as m;
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--photo-ratio, 4 / 3);
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Parallax images are taller than their frame so they can travel inside it.
+.img.parallax {
+  @include m.full-motion {
+    top: -10%;
+    bottom: auto;
+    height: 120%;
+    will-change: transform;
+  }
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  text-align: center;
+}

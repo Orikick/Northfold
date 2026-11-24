@@ -1,0 +1,134 @@
+@use "./reset";
+@use "./variables" as v;
+@use "./mixins" as m;
+
+:root {
+  // Colour
+  --paper: #f3f4ef;
+  --ink: #12173a;
+  --cobalt: #2b44e8;
+  --butter: #f2d86b;
+  --mist: #d5dad6;
+  --slate: #4a5068;
+  --white: #ffffff;
+  --danger: #b42318;
+  --on-ink-muted: #b9beda;
+  --on-cobalt-muted: #dde2ff;
+
+  // Contextual tokens: dark sections override these.
+  --muted: var(--slate);
+  --rule: var(--mist);
+  --focus: var(--cobalt);
+
+  // Type
+  // Syne for headlines and UI, Manrope for text.
+  --font-display: "Syne Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Manrope Variable", "Helvetica Neue", Arial, sans-serif;
+  --step--1: 0.9375rem;
+  --step-0: 1.1875rem;
+  --step-1: clamp(1.3125rem, 1.2rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+  --step-3: clamp(2.25rem, 1.4rem + 4vw, 4.75rem);
+  --step-4: clamp(2.75rem, 9.6vw, 9.5rem);
+
+  // Layout
+  --header-h: 4rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  // Left edge of the container, for full-bleed rows that align with it.
+  --edge: max(var(--gutter), calc((100vw - #{v.$container}) / 2 + var(--gutter)));
+
+  @include m.up(md) {
+    --header-h: 5rem;
+  }
+}
+
+html {
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--butter);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+// Sections receive focus after an in-page jump; they don't need a ring.
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+section[id] {
+  scroll-margin-top: var(--header-h);
+}
+
+.visually-hidden {
+  @include m.visually-hidden;
+}
+
+// SplitText line masks: leave room for descenders so they aren't clipped.
+.split-line-mask {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+// Lenis (smooth scroll) base rules.
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+// Anything animated with CSS stops for people who ask for less motion.
+// GSAP and Lenis are switched off separately in JavaScript.
+@include m.reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

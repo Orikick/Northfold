@@ -1,0 +1,102 @@
+@use "../../../styles/mixins" as m;
+
+.card {
+  // Small screens: fixed-width portrait cards in a swipeable row.
+  --photo-ratio: 4 / 5;
+  --card-w: min(78vw, 21rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: var(--card-w);
+
+  @include m.up(md) {
+    --card-w: 24rem;
+  }
+
+  // Desktop: every photo has the same height and its own width, which
+  // gives the track an uneven, editorial rhythm.
+  @include m.up(lg) {
+    --card-h: clamp(13.75rem, 40vh, 32rem);
+    --photo-ratio: var(--ratio);
+    --card-w: calc(var(--card-h) * var(--ratio));
+  }
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.25rem;
+
+  // Block revealed when the photo lifts on hover.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--butter);
+  }
+}
+
+.frame {
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.photo {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.title {
+  position: relative;
+  padding-bottom: 0.25rem;
+  font-size: var(--step-2);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+@include m.hover {
+  .card:hover .frame {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+
+  .card:hover .photo {
+    transform: scale(1.06);
+  }
+
+  .card:hover .title::after {
+    transform: scaleX(1);
+  }
+}
+
+.meta {
+  @include m.display-font;
+  margin-top: 0.375rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+.summary {
+  margin-top: 0.75rem;
+  font-size: 1.1875rem;
+  line-height: 1.45;
+}
+
+.result {
+  @include m.display-font;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  background: var(--butter);
+  color: var(--ink);
+  border-radius: 2px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}

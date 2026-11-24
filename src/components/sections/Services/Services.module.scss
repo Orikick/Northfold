@@ -1,0 +1,13 @@
+@use "../../../styles/mixins" as m;
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.inner {
+  @include m.container;
+}
+
+.list {
+  border-bottom: 2px solid var(--ink);
+}

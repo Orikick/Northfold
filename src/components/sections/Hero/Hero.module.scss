@@ -1,0 +1,55 @@
+@use "../../../styles/mixins" as m;
+
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 5.5rem) var(--section-y);
+}
+
+.inner {
+  @include m.container;
+}
+
+.title {
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  // The line breaks are part of the reveal, so let them fall naturally.
+  text-wrap: wrap;
+}
+
+.lower {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: clamp(2rem, 5vw, 4.5rem);
+
+  @include m.up(lg) {
+    grid-template-columns: 5fr 7fr;
+    gap: 3rem;
+    align-items: end;
+  }
+}
+
+.lede {
+  max-width: 32rem;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.textLink {
+  @include m.display-font;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 2px;
+}

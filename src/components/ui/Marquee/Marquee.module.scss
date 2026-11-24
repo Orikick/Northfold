@@ -1,0 +1,97 @@
+@use "../../../styles/mixins" as m;
+
+.wrap {
+  position: relative;
+}
+
+.marquee {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: slide var(--marquee-duration, 45s) linear infinite;
+  will-change: transform;
+}
+
+.paused .track {
+  animation-play-state: paused;
+}
+
+@include m.hover {
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+.group {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+
+.item {
+  @include m.display-font;
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-right: clamp(1.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.25rem, 6.4vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  // Diamond separator between names.
+  &::after {
+    content: "";
+    flex: none;
+    width: 0.3em;
+    height: 0.3em;
+    background: var(--cobalt);
+    transform: rotate(45deg);
+  }
+}
+
+.control {
+  @include m.display-font;
+  display: block;
+  min-height: 2.75rem;
+  margin: 0.75rem var(--edge) 0 auto;
+  padding-inline: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// Reduced motion: no animation, one copy of the list, wrapped.
+@include m.reduced-motion {
+  .track {
+    width: auto;
+    padding-inline: var(--edge);
+    animation: none;
+  }
+
+  .group {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .clone,
+  .control {
+    display: none;
+  }
+
+  .item {
+    white-space: normal;
+  }
+}

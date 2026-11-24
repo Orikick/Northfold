@@ -1,0 +1,15 @@
+.skeleton {
+  display: block;
+  background: var(--skeleton, var(--mist));
+  animation: pulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.45;
+  }
+}

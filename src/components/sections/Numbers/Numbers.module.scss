@@ -1,0 +1,50 @@
+@use "../../../styles/mixins" as m;
+
+.section {
+  --muted: var(--on-cobalt-muted);
+  --focus: var(--butter);
+  padding-block: var(--section-y);
+  background: var(--cobalt);
+  color: var(--white);
+}
+
+.inner {
+  @include m.container;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+
+  @include m.up(lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+// dt (label) comes first in the markup; the number is shown above it.
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid rgb(255 255 255 / 0.55);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 1.6rem + 6.4vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  max-width: 15rem;
+  color: var(--muted);
+  font-size: 1.1875rem;
+  line-height: 1.4;
+}
