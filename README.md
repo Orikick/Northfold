@@ -2,7 +2,7 @@
 
 Designed and developed by Orest Labiak.
 
-**Live demo:** https://rowline.netlify.app/
+**Live demo:** https://northfold-1.netlify.app/
 
 <!-- Screenshots: save them to the docs/ folder with these names, then delete this comment's first and last lines.
 ![Desktop view](docs/screenshot-desktop.png)
